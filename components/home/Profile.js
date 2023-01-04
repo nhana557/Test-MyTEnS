@@ -7,13 +7,12 @@ import { useEffect } from "react";
 export default function Profile({username}) {
   const dispacth = useDispatch();
   const { profile } = useSelector((state) => state.profile);
-  console.log("ini res user", username);
   useEffect(() => {
     dispacth(profileAction(username));
   }, [username]);
   return (
-    <div className="w-1/4 h-auto mt-1">
-      <div className="w-full max-w-sm p-5 rounded-lg shadow-md bg-gray-800 border-gray-700">
+    <div className="xxl:w-1/4 h-auto mt-3 rounded-xl">
+      <div className="w-full rounded-lg shadow-md bg-gray-800 border-gray-700">
         <div className="p-14">
           <div className="flex flex-col items-center pb-10">
             <Image

@@ -1,32 +1,40 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RepositoryAction } from "../../config/redux/action/repositoryAction";
-import Pagination from "./Pagination";
-import { useSession } from "next-auth/react";
-import moment from "moment";
+import Pagination from "../components/home/Pagination";
+import {useRouter} from "next/router";
+import Profile from "../components/home/Profile";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { profileAction } from "../config/redux/action/profile";
+import moment from "moment/moment";
+import { RepositoryAction } from "../config/redux/action/repositoryAction";
+
 
 export default function Repository() {
   const dispacth = useDispatch();
-  const {data: session} = useSession()
+  const router = useRouter()
+  const { username } = router.query;
   const [count, setCount] = useState(1)
   const { data } = useSelector((state) => state.repos);
+  const { profile } = useSelector((state) => state.profile)
   useEffect(() => {
-    if(session){
-      // dispacth(RepositoryAction(session., count));
-    }
-    dispacth(RepositoryAction("nhana557", count));
-  }, [count]);
+    dispacth(RepositoryAction(username, count));
+    dispacth(profileAction(username))
+  }, [count, username]);
   return (
     <>
-      <div className="grow h-max p-4 ">
-        <div className="text-3xl text-gray-300 hover:cursor-pointer hover:text-white my-2 w-max"
-            onClick={() => window.location.reload()}
-          >
-            <p>
-              Repository
-            </p>
-          </div>
-          <div className="grid grid-cols-3 gap-5 mt-3">
+    <Navbar />
+    <div class="container flex h-full bg-gray-700">
+      <Profile profile={profile}/>
+      <div className="grow h-max pl-2">
+        <div className="text-3xl text-gray-300 hover:cursor-pointer hover:text-white my-5 w-max"
+          onClick={() => window.location.reload()}
+        >
+          <p>
+            Repository
+          </p>
+        </div>
+        <div className="grid grid-cols-3 gap-5 mt-3">
             {data?.map((item, i) => (
             <div
               className="w-full max-w-sm rounded-lg shadow-md bg-gray-800 border-gray-700"
@@ -49,6 +57,8 @@ export default function Repository() {
             <Pagination count={count} setCount={setCount} data={data}/>
           }
       </div>
+    </div>
+    <Footer />
     </>
   );
 }

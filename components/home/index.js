@@ -1,13 +1,13 @@
 import Profile from './Profile'
 import Repository from './Repository'
 
-function Home() {
+function Content() {
   return (
-    <div class="container flex h-full bg-gray-700 ">
+    <div class="container h-full bg-gray-700  flex  xl:flex-row flex-col">
         <Profile/>
         <Repository/>
     </div>
   )
 }
 
-export default Home
+export default Content

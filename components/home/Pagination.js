@@ -1,29 +1,32 @@
-import React from "react";
 
-function Pagination({count, setCount}) {
+function Pagination({count, setCount, data}) {
     const incrementCount = (e) =>{
         e.preventDefault()
-        const plus = count + 1
-        setCount(plus)
+        if (count >= data.length){
+          return;
+        }else{
+          const plus = count + 1
+          setCount(plus)
+        }
     }
     const decrementCount = (e) =>{
         e.preventDefault()
         if(count <= 1){
             return setCount(1)
         }else{
-            const plus = count - 1
-            setCount(plus)
+          const min = count - 1
+          setCount(min)
         }
     }
   return (
-    <div className="w-1/2 flex  mt-3 mx-96 mb-10">
+    <div className="w-full flex mt-10 justify-between mb-10 xl:sticky bottom-15 mx-auto">
       <button
-        class="inline-flex items-center px-10 py-5 text-md mr-3 font-medium  border  rounded-lg  bg-gray-800 border-gray-700 text-gray-400 hover:text-white "
+        className="inline-flex items-center px-10 py-5 text-md mr-10 font-medium  border  rounded-lg  bg-gray-800 border-gray-700 text-gray-400 hover:text-white "
         onClick={decrementCount}
       >
         <svg
           aria-hidden="true"
-          class="w-5 h-5 mr-2"
+          className="w-5 h-5 mr-2"
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
@@ -36,14 +39,17 @@ function Pagination({count, setCount}) {
         </svg>
         Previous
       </button>
+      <span
+        className="w-max text-3xl text-white mt-3 mr-20"
+      >{`${count} / ${data.length - 1}`}</span>
       <button
-        class="inline-flex items-center px-10 py-5 text-md font-medium  border  rounded-lg  bg-gray-800 border-gray-700 text-gray-400  hover:text-white "
+        className="inline-flex items-center px-10 py-5 text-md font-medium border rounded-lg bg-gray-800 border-gray-700 text-gray-400 hover:text-white "
         onClick={incrementCount}
       >
         Next
         <svg
           aria-hidden="true"
-          class="w-5 h-5 ml-2"
+          className="w-5 h-5 ml-2"
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
