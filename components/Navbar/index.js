@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SearchUserAction } from "../../config/redux/action/search";
-import UserList from "../userList";
+import UserList from "../UserList";
 import { useSession, signIn, signOut } from "next-auth/react"
 
 export default function Navbar() {
