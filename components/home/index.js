@@ -3,7 +3,7 @@ import Repository from './Repository'
 
 function Home() {
   return (
-    <div class="container flex h-full bg-gray-700">
+    <div class="container flex h-full bg-gray-700 ">
         <Profile/>
         <Repository/>
     </div>

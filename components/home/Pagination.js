@@ -16,7 +16,7 @@ function Pagination({count, setCount}) {
         }
     }
   return (
-    <div className="w-1/2 flex  mt-3 mx-96 ">
+    <div className="w-1/2 flex  mt-3 mx-96 mb-10">
       <button
         class="inline-flex items-center px-10 py-5 text-md mr-3 font-medium  border  rounded-lg  bg-gray-800 border-gray-700 text-gray-400 hover:text-white "
         onClick={decrementCount}

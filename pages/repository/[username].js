@@ -29,8 +29,14 @@ export default function Repository() {
     <Navbar />
     <div class="container flex h-full bg-gray-700">
       <Profile profile={profile}/>
-      <div className="grow h-max p-4">
-
+      <div className="grow h-max pl-2">
+        <div className="text-3xl text-gray-300 hover:cursor-pointer hover:text-white my-5 w-max"
+          onClick={() => window.location.reload()}
+        >
+          <p>
+            Repository
+          </p>
+        </div>
         <div className="grid grid-cols-3 gap-5 mt-3">
           {data?.map((item, i) => (
           <div

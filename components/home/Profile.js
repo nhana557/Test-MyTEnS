@@ -12,7 +12,7 @@ export default function Profile({username}) {
     dispacth(profileAction(username));
   }, [username]);
   return (
-    <div className="w-1/4 h-auto mt-4">
+    <div className="w-1/4 h-auto mt-1">
       <div className="w-full max-w-sm p-5 rounded-lg shadow-md bg-gray-800 border-gray-700">
         <div className="p-14">
           <div className="flex flex-col items-center pb-10">
