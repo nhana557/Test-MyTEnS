@@ -1,11 +1,25 @@
 import React from "react";
 
-function Pagination() {
+function Pagination({count, setCount}) {
+    const incrementCount = (e) =>{
+        e.preventDefault()
+        const plus = count + 1
+        setCount(plus)
+    }
+    const decrementCount = (e) =>{
+        e.preventDefault()
+        if(count <= 1){
+            return setCount(1)
+        }else{
+            const plus = count - 1
+            setCount(plus)
+        }
+    }
   return (
-    <div className="w-1/2 flex  mt-12 mx-auto">
-      <a
-        href="#"
+    <div className="w-1/2 flex  mt-3 mx-96 ">
+      <button
         class="inline-flex items-center px-10 py-5 text-md mr-3 font-medium  border  rounded-lg  bg-gray-800 border-gray-700 text-gray-400 hover:text-white "
+        onClick={decrementCount}
       >
         <svg
           aria-hidden="true"
@@ -21,10 +35,10 @@ function Pagination() {
           ></path>
         </svg>
         Previous
-      </a>
-      <a
-        href="#"
+      </button>
+      <button
         class="inline-flex items-center px-10 py-5 text-md font-medium  border  rounded-lg  bg-gray-800 border-gray-700 text-gray-400  hover:text-white "
+        onClick={incrementCount}
       >
         Next
         <svg
@@ -40,7 +54,7 @@ function Pagination() {
             clip-rule="evenodd"
           ></path>
         </svg>
-      </a>
+      </button>
     </div>
   );
 }

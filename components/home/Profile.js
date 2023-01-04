@@ -4,23 +4,24 @@ import { useSelector, useDispatch } from "react-redux";
 import { profileAction } from "../../config/redux/action/profile";
 import { useEffect } from "react";
 
-export default function Profile() {
+export default function Profile({username}) {
   const dispacth = useDispatch();
   const { profile } = useSelector((state) => state.profile);
-  console.log("ini res", profile);
+  console.log("ini res user", username);
   useEffect(() => {
-    dispacth(profileAction());
-  }, []);
+    dispacth(profileAction(username));
+  }, [username]);
   return (
     <div className="w-1/4 h-auto mt-4">
-      <div className="w-full max-w-sm rounded-lg shadow-md bg-gray-800 border-gray-700">
+      <div className="w-full max-w-sm p-5 rounded-lg shadow-md bg-gray-800 border-gray-700">
         <div className="p-14">
           <div className="flex flex-col items-center pb-10">
             <Image
             src={profile.avatar_url}
+            alt="img_profile"
             width={100}
             height={100}
-            className={`${styles.img} w-40 h-40 mb-3 rounded-full shadow-lg`}
+            className={`${styles.img} w-40 h-40 mb-3 text-center rounded-full shadow-lg`}
           />
             <h5 className="mb-1 text-xl font-medium text-white">
                 {profile.name}

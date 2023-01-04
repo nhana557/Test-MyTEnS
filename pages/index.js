@@ -2,8 +2,7 @@ import Head from 'next/head.js'
 import React, { Fragment } from 'react'
 import Footer from '../components/Footer/index.js'
 import Navbar from '../components/Navbar/index.js'
-import Profile from '../components/home/Profile.js'
-import Repository from '../components/home/Repository.js'
+import Content from '../components/home/index'
 
 function Home() {
   return (
@@ -14,10 +13,7 @@ function Home() {
             <link rel="icon" href="/vercel.svg" />
         </Head>
         <Navbar/>
-        <div class="container flex h-full bg-gray-700">
-            <Profile />
-            <Repository />
-        </div>
+        <Content />
         <Footer />
     </div>
   )
