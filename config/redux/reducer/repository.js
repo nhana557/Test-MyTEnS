@@ -1,6 +1,6 @@
 const initialState = {
     data: [],
-    loading: false
+    isLoading: false
 }
 
 
@@ -9,12 +9,13 @@ export const RepositoryReducer = (state = initialState, {type, payload}) =>{
         case "GET_REPOSITORY_PENDING":
             return {
                 ...state,
-                loading: true
+                isLoading: true
             }
         case "GET_REPOSITORY_SUCCES": 
             return {
                 ...state,
-                data: payload
+                data: payload,
+                isLoading: false
             }
         case "GET_REPOSITORY_ERROR": 
             return {

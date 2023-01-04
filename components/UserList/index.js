@@ -1,7 +1,6 @@
 import Image from 'next/image'
 
 function UserList({ data, setSearching }) {
-  console.log(data)
   return (
     <div class="grid grid-cols-1 divide-y absolute w-full h-min scroll-m-2 snap-y">
         {data && data?.map((item, i) =>(

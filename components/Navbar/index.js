@@ -50,7 +50,7 @@ export default function Nav() {
           {isOpen &&
             <div  class="z-10  absolute top-20 right-10 divide-y rounded shadow w-58 bg-gray-500 divide-gray-600">
                 <div class="py-1 text-sm text-white">
-                    <p className="px-3 text-center text-xl">{session.user.name}</p>
+                    <p className="px-3 text-center text-xl">Hallo, {session.user.name}</p>
                     <p className="p-3 text-lg">{session.user.email}</p>
                 </div>
                 <hr/>
