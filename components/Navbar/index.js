@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SearchUserAction } from "../../config/redux/action/search";
 import UserList from "../UserList";
-import { Button, Dropdown, Navbar } from "flowbite-react";
+import { Button,  Navbar } from "flowbite-react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import SearchInput from "../base/input/SearchInput";
-import Link from "next/link";
 import Image from "next/image";
 
 export default function Nav() {
@@ -14,7 +13,6 @@ export default function Nav() {
   const { data: session } = useSession();
   const [searching, setSearching] = useState();
   const { search } = useSelector((state) => state.search);
-  // console.log(session.user);
 
   const handleOpen = (e) =>{
     e.preventDefault()
@@ -50,14 +48,14 @@ export default function Nav() {
             onClick={handleOpen}
           />
           {isOpen &&
-            <div  class="z-10  absolute right-32 divide-y rounded shadow w-58 bg-gray-500 divide-gray-600">
+            <div  class="z-10  absolute top-20 right-10 divide-y rounded shadow w-58 bg-gray-500 divide-gray-600">
                 <div class="py-1 text-sm text-white">
                     <p className="px-3 text-center text-xl">{session.user.name}</p>
                     <p className="p-3 text-lg">{session.user.email}</p>
                 </div>
                 <hr/>
                 <div class="py-1">
-                  <span class="block px-4 py-2 text-sm  hover:bg-gray-600 text-gray-200
+                  <span class="block px-4 py-2 text-lg  hover:bg-gray-600 text-gray-200
                    hover:text-white hover:cursor-pointer"
                   onClick={() => signOut()}
                   >Log Out</span>

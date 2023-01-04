@@ -1,32 +1,37 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Pagination from "../components/home/Pagination";
+import { Pagination } from "flowbite-react";
 import {useRouter} from "next/router";
-import Profile from "../components/home/Profile";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import { profileAction } from "../config/redux/action/profile";
+import Profile from "../../components/home/Profile";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import { profileAction } from "../../config/redux/action/profile";
 import moment from "moment/moment";
-import { RepositoryAction } from "../config/redux/action/repositoryAction";
+import { RepositoryAction } from "../../config/redux/action/repositoryAction";
 
 
 export default function Repository() {
   const dispacth = useDispatch();
   const router = useRouter()
   const { username } = router.query;
-  const [count, setCount] = useState(1)
+  const [page, setPage] = useState(1)
   const { data } = useSelector((state) => state.repos);
   const { profile } = useSelector((state) => state.profile)
+  console.log(data)
+  const onPageChange = (e) =>{
+    setPage(e)
+  }
   useEffect(() => {
-    dispacth(RepositoryAction(username, count));
+    dispacth(RepositoryAction(username, page));
     dispacth(profileAction(username))
-  }, [count, username]);
+  }, [page, username]);
+
   return (
     <>
     <Navbar />
-    <div class="container flex h-full bg-gray-700">
+    <div class="container h-full bg-gray-700  flex  xl:flex-row flex-col">
       <Profile profile={profile}/>
-      <div className="grow h-max pl-2">
+      <div className="grow h-max p-4">
         <div className="text-3xl text-gray-300 hover:cursor-pointer hover:text-white my-5 w-max"
           onClick={() => window.location.reload()}
         >
@@ -53,9 +58,13 @@ export default function Repository() {
             </div>
           ))}
           </div>
-          {data?.length > 5 &&
-            <Pagination count={count} setCount={setCount} data={data}/>
-          }
+          <Pagination
+              layout="pagination"
+              currentPage={page}
+              totalPages={data?.length - 1}
+              onPageChange={onPageChange}
+              className="w-max flex mt-10 justify-center mb-10 xl:absolute bottom-15 left-1/2 mx-auto"
+            />
       </div>
     </div>
     <Footer />

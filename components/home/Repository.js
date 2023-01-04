@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RepositoryAction } from "../../config/redux/action/repositoryAction";
-import Pagination from "./Pagination";
+import { Pagination } from "flowbite-react";
 import { useSession } from "next-auth/react";
 import moment from "moment";
 
 export default function Repository() {
   const dispacth = useDispatch();
-  const {data: session} = useSession()
-  const [count, setCount] = useState(1)
+  // const {data: session} = useSession()
+  const [page, setPage] = useState(1)
   const { data } = useSelector((state) => state.repos);
+  const onPageChange = (e) =>{
+    setPage(e)
+  }
   useEffect(() => {
-    if(session){
-      // dispacth(RepositoryAction(session., count));
-    }
-    dispacth(RepositoryAction("nhana557", count));
-  }, [count]);
+    dispacth(RepositoryAction("nhana557", page));
+  }, [page]);
   return (
     <>
       <div className="grow h-max p-4 ">
@@ -45,9 +45,14 @@ export default function Repository() {
             </div>
           ))}
           </div>
-          {data?.length > 5 &&
-            <Pagination count={count} setCount={setCount} data={data}/>
-          }
+          <div className="w-max flex mt-10 justify-center mb-10 xl:absolute bottom-15 left-1/2 mx-auto">
+            <Pagination
+              layout="pagination"
+              currentPage={page}
+              totalPages={data.length - 1}
+              onPageChange={onPageChange}
+            />
+          </div>
       </div>
     </>
   );
