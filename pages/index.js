@@ -1,5 +1,4 @@
 import Head from 'next/head.js'
-import React, { Fragment } from 'react'
 import Footer from '../components/Footer/index.js'
 import Navbar from '../components/Navbar/index.js'
 import Content from '../components/home/index'

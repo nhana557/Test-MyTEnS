@@ -1,10 +1,9 @@
-import { Footer } from "flowbite-react";
 import Link from "next/link";
 import { BsFacebook } from "react-icons/bs"
 import { BsGithub } from "react-icons/bs"
 import { BsLinkedin } from "react-icons/bs";
 
-function Footers() {
+function Footer() {
   return (
     <footer className="shadow md:px-6 md:py-8 xl:mt-56 bg-gray-900 py-8 bottom-0 w-full flex justify-between mt-36">
       <span></span>

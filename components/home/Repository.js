@@ -2,12 +2,10 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RepositoryAction } from "../../config/redux/action/repositoryAction";
 import { Pagination } from "flowbite-react";
-import { useSession } from "next-auth/react";
 import moment from "moment";
 
 export default function Repository() {
   const dispacth = useDispatch();
-  // const {data: session} = useSession()
   const [page, setPage] = useState(1)
   const { data } = useSelector((state) => state.repos);
   const onPageChange = (e) =>{
