@@ -27,7 +27,7 @@ export default function Repository() {
   return (
     <>
       <Navbar />
-      <div class="container h-full bg-gray-700  flex  xl:flex-row flex-col">
+      <div className="container h-full bg-gray-700 flex xl:flex-row flex-col">
         <Profile profile={profile} />
         <div className="grow h-max p-4">
           <div

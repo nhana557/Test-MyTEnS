@@ -48,14 +48,14 @@ export default function Nav() {
             onClick={handleOpen}
           />
           {isOpen &&
-            <div  class="z-10  absolute top-20 right-10 divide-y rounded shadow w-58 bg-gray-500 divide-gray-600">
-                <div class="py-1 text-sm text-white">
+            <div  className="z-10  absolute top-20 right-10 divide-y rounded shadow w-58 bg-gray-500 divide-gray-600">
+                <div className="py-1 text-sm text-white">
                     <p className="px-3 text-center text-xl">Hallo, {session.user.name}</p>
                     <p className="p-3 text-lg">{session.user.email}</p>
                 </div>
                 <hr/>
-                <div class="py-1">
-                  <span class="block px-4 py-2 text-lg  hover:bg-gray-600 text-gray-200
+                <div className="py-1">
+                  <span className="block px-4 py-2 text-lg  hover:bg-gray-600 text-gray-200
                    hover:text-white hover:cursor-pointer"
                   onClick={() => signOut()}
                   >Log Out</span>

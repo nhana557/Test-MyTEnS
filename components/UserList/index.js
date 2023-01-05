@@ -1,11 +1,10 @@
 import Image from 'next/image'
-import Link from 'next/link'
 
 function UserList({ data, setSearching }) {
   return (
-    <div class="grid grid-cols-1 divide-y absolute w-full h-min scroll-m-2 snap-y">
+    <div className="grid grid-cols-1 divide-y absolute w-full h-min scroll-m-2 snap-y">
         {data && data?.map((item, i) =>(
-          <Link href={`/${item.login}`} onClick={() => setSearching("")} key={i}>
+          <a href={`/${item.login}`} onClick={() => setSearching("")} key={i}>
             <div  className="bg-gray-600 flex p-4 scroll-ml-6 snap-start" >
                 <Image
                   src={item.avatar_url}
@@ -15,7 +14,7 @@ function UserList({ data, setSearching }) {
                 />
                 <span className='pt-3 text-white'>{item.login}</span>
             </div>
-          </Link>
+          </a>
         ))}
     </div>
   )
