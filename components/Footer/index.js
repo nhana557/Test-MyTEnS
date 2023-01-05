@@ -24,4 +24,4 @@ function Footer() {
   );
 }
 
-export default Footers;
+export default Footer;
