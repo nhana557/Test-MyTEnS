@@ -6,7 +6,7 @@ import { BsLinkedin } from "react-icons/bs";
 
 function Footers() {
   return (
-    <footer className="shadow md:px-6 md:py-8 xl:mt-56 bg-gray-900 py-8 bottom-0 w-full flex justify-between">
+    <footer className="shadow md:px-6 md:py-8 xl:mt-56 bg-gray-900 py-8 bottom-0 w-full flex justify-between mt-36">
       <span></span>
         <span className="block text-xl  text-start text-gray-400 ml-20">© 2022 <a href="https://github.com/nhana557" className="hover:underline">Taryana</a>
         </span>
@@ -22,18 +22,6 @@ function Footers() {
           </Link>
         </span>
     </footer>
-    // <Footer container={true} >
-    //   <div className="w-full bottom-0">
-    //     <div className="w-full sm:flex sm:items-center sm:justify-between">
-    //       <Footer.Copyright href="https://github.com/nhana557" by="Taryana™" year={2022} />
-    //       <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-    //         <Footer.Icon href="#" icon={BsFacebook} />
-    //         <Footer.Icon href="https://github.com/nhana557" icon={BsGithub} />
-    //         {/* <Footer.Icon href="#" icon={BsDribbble} /> */}
-    //       </div>
-    //     </div>
-    //   </div>
-    // </Footer>
   );
 }
 

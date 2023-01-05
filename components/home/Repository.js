@@ -45,14 +45,13 @@ export default function Repository() {
             </div>
           ))}
           </div>
-          <div className="w-max flex mt-10 justify-center mb-10 xl:absolute bottom-15 left-1/2 mx-auto">
             <Pagination
               layout="pagination"
               currentPage={page}
               totalPages={data.length - 1}
               onPageChange={onPageChange}
+              className="w-min flex mt-10 justify-center mb-10 absolute xl:bottom-0 top-screen xl:left-1/2 mx-auto left-1/4"
             />
-          </div>
       </div>
     </>
   );
